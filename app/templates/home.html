@@ -1,13 +1,87 @@
 {% extends "base.html" %}
 
+{% block head %}
+
+<style>
+    .category{
+        border-style: solid;
+        border-color: rgb(54, 219, 137);
+        border-width: 4px;
+        align-items: center;
+        border-radius: 80%;
+        width: 100%;
+        max-width:300px;
+        max-height: 300px;
+        min-width:300px;
+        min-height: 300px;
+        box-sizing: border-box;
+    }
+</style>
+
+{% endblock %}
+
 {% block content %}
     <div>
-        Navigation:
-        <a href="{{ url_for('search') }}">Vegetables</a>
-        <a href="{{ url_for('search') }}">Fruit</a>
-        <a href="{{ url_for('search') }}">Flowers</a>
-        <a href="{{ url_for('search') }}">Trees</a>
-        <a href="{{ url_for('search') }}">Shrubs</a>
-        <a href="{{ url_for('search') }}">Tools</a>
+        <main>
+            <span>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="Images/seeds.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category"src="Images/vegGarden.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="Images/fruitGarden.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="Images/flower.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="Images/gardening.jpg">
+                            </a>
+                        </td>
+                    </tr>
+    
+                    <tr class = "category">
+                        <td>
+                            <a href="">
+                                <img class= "category" src="Images/tree.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="Images/Shrubs.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="Images/tools.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="Images/farming.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="Images/DIY.jpg">
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </span>        
+        </main>
     </div>
 {% endblock %}
