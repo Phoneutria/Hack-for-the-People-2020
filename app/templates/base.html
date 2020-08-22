@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Seed Link</title>
+    </head>
+    <body>
+        <div>
+            <h1>Seed Link</h1>
+            {% if current_user.is_anonymous %}
+            <h2>Welcome!</h2>
+            {% else %}
+            <h2>Welcome, {{ current_user.username }}!</h2>
+            {% endif %}
+        </div>
+        <div>
+            Navigation:
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('search') }}">Search</a>
+            <a href="{{ url_for('catalog') }}">Catalog</a>
+            {% if current_user.is_anonymous %}
+            <a href="{{ url_for('login') }}">Login/Sign Up</a>
+            {% else %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}
+        </div>
+        {% block content %}{% endblock %}
+    </body>
+</html>
