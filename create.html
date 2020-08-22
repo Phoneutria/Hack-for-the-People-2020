@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #form {
+                display: flex;
+                flex-direction: column;
+                align-items: baseline;
+                justify-content: space-evenly;
+                width: 100%;
+                position: relative;
+                left: 25%;
+                width: 50%;
+                height: 500px;
+            }
+            .infobutton {
+                border: none;
+                width: 20px;
+                height: 20px;
+                background-color: darkgreen;
+                transition: all ease-in-out 0.05s;
+                cursor:pointer;
+            }
+
+            .infobutton:hover {
+                border: 1px solid #888;
+                background-color: darkgreen;
+            }
+
+            .navbutton {
+                color: white;
+                background-color: darkgreen
+            }
+
+            #createListing {
+                position: relative;
+                left: 40%;
+            }
+
+            .smalltextbox {
+                width: 500px;
+            }
+
+            .largetextbox {
+                width: 500px;
+                height: 100px;
+
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+        <div id = "form">
+            <p> On this page, you can post listings to be seen by other users.</p>
+            <label> Looking for: 
+                <img class = "infobutton" src = "Images/info.jpeg" title = "Enter any items you are looking for, separated by commas.">
+                <input class = "smalltextbox">
+            </label>
+            <label> Offering: 
+                <img class = "infobutton" src = "Images/info.jpeg" title = "Enter any items you are offering, separated by commas.">
+                <input class = "smalltextbox">
+            </label>
+            <label> Location: 
+                <img class = "infobutton" src = "Images/info.jpeg" title = "Enter your city and state, so other users know where they could meet with you!">
+                <input class = "smalltextbox">
+            </label>
+            <label> Other: 
+                <img class = "infobutton" src = "Images/info.jpeg" title = "Enter any additional information here.">
+                <textarea class = "largetextbox"> </textarea>
+            </label>
+            <button class = "navbutton" id = "createListing">
+                Create listing
+            </button>
+
+        <div>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>
