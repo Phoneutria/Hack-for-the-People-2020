@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<style>
+
+    /*CSS for styling the header*/
+    
+
+    #navbar {
+        overflow: hidden;
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        position: sticky;
+        width: 100%;
+        top:0 ;
+
+    }
+
+    
+
+    /* Navbar links */
+    .navbutton {
+        color: white;
+        background-color: darkgreen
+    }
+
+    .category{
+        border-style: solid;
+        border-color: rgb(54, 219, 137);
+        border-width: 4px;
+        align-items: center;
+        border-radius: 80%;
+        width: 100%;
+        max-width:300px;
+        max-height: 300px;
+        min-width:300px;
+        min-height: 300px;
+        box-sizing: border-box;
+    }
+
+    #namebar {
+        display: flex;
+        overflow: hidden;
+        justify-content: center;
+        background-color: lightgreen;
+        position: sticky;
+        width: 100%;
+        top:0;
+    }
+
+    
+    #namebar a {
+        text-decoration: none;
+        color: darkgreen;
+    }
+</style>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Home Page">
+    <meta name="keywords" content="Seedlink subjects">
+    <meta name="author" content="The Trio">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Seedlink Home
+    </title>
+</head>
+
+<body>
+    <div id="namebar">
+        <h1>
+            <span>
+                SeedLink
+            </span>
+        </h1>
+    </div>
+
+    <div id="navbar">
+        <button class="navbutton" onclick="window.location.href='#about';">
+            About
+        </button>
+        <button class="navbutton" onclick="window.location.href='#faq';">
+            FAQ
+        </button>
+        <button class="navbutton" onclick="window.location.href='#search';">
+            Search
+        </button>
+        <button class="navbutton" onclick="window.location.href='#catalogue';">
+            Catalogue
+        </button>
+        <button class="navbutton" onclick="window.location.href='#login';">
+            Login or Sign Up
+        </button>
+    </div>
+
+    <br/>
+    <br/>
+
+    <main>
+        <span>
+            <table>
+                <tr>
+                    <td>
+                        <a href="">
+                            <img class= "category" src="Images/seeds.jpg">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="">
+                            <img class= "category"src="Images/vegGarden.jpg">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="">
+                            <img class= "category" src="Images/fruitGarden.jpg">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="">
+                            <img class= "category" src="Images/flower.jpg">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="">
+                            <img class= "category" src="Images/gardening.jpg">
+                        </a>
+                    </td>
+                </tr>
+
+                <tr class = "category">
+                    <td>
+                        <a href="">
+                            <img class= "category" src="Images/tree.jpg">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="">
+                            <img class= "category" src="Images/Shrubs.jpg">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="">
+                            <img class= "category" src="Images/tools.jpg">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="">
+                            <img class= "category" src="Images/farming.jpg">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="">
+                            <img class= "category" src="Images/DIY.jpg">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </span>        
+    </main>
+</body>
+
+<footer>
+
+
+</footer>
+
+</html>
