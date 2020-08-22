@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            /* TODO: currently same code and class as top_bar.html*/
+            .navbutton {
+                background-color: darkgreen;
+                color: white;
+                height: 30px;
+                width: 100px;
+                position: relative;
+                left: 25%;
+            }
+
+            #searchBars {
+                display: grid;
+                grid-gap: 10px;
+                grid-template-columns: 300px;
+                grid-auto-rows: minmax(50px, auto);
+                position: relative;
+                width: 300px;
+                left: 25%;
+            }
+
+            #searchHere {
+                grid-column: 1;
+                grid-row: 1;
+                position: relative;
+                left: 20%
+            }
+
+            #textOne {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            #textTwo {
+                grid-column: 1;
+                grid-row: 3;
+            }
+            
+            #textThree {
+                grid-column: 1;
+                grid-row: 4;
+            }
+
+            #textFour {
+                grid-column: 1;
+                grid-row: 5;
+            }
+
+            #searchButton {
+                grid-column: 1;
+                grid-row: 6;
+            }
+
+        </style>
+
+        <script>
+
+            function register() {
+                window.location.href='#catalogue';
+                console.log("Register button clicked!")
+            }
+            
+        </script>
+
+    </head>
+
+    <body>
+
+        <div id = "searchBars">
+            <p id = "searchHere"> Search listings:</p>
+            <label id = "textOne"> Name:
+                <input id = "name"/>
+            </label>
+            <label id = "textTwo">Looking For:
+                <input id = "lookingFor"/>
+            </label>
+            <label id = "textThree">Offering:
+                <input id = "offering"/>
+            </label>
+            <label id = "textFour">Location:
+                <input id = "location"/>
+            </label>
+            <button class = "navbutton" id = "searchButton"
+                    onclick = "search()"> 
+                    Search </button>
+        </div>
+    </body>
+
+</html>
