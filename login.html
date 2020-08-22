@@ -1,90 +1,88 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <style>
+{% extends "top_bar.html" %}
 
-            #credentials {
-                display: grid;
-                grid-gap: 10px;
-                grid-template-columns: repeat(1, 1fr);
-                grid-auto-rows: minmax(50px, auto);
-                position: relative;
-                width: 300px;
-                left: 25%;
-            }
+{% block head %}
+<style>
 
-            #logInHere {
-                grid-column: 1;
-                grid-row: 1;
-            }
+    #credentials {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: minmax(50px, auto);
+        position: relative;
+        width: 300px;
+        left: 25%;
+    }
 
-            #textOne {
-                grid-column: 1;
-                grid-row: 2;
-            }
+    #logInHere {
+        grid-column: 1;
+        grid-row: 1;
+    }
 
-            #textTwo {
-                grid-column: 1;
-                grid-row: 3;
-            }
-            
-            #login {
-                grid-column: 1;
-                grid-row: 4;
-            }
+    #textOne {
+        grid-column: 1;
+        grid-row: 2;
+    }
 
-            #registerInfo {
-                grid-column: 1;
-                grid-row: 5;
-                position: relative;
-                left: 5%;
-            }
+    #textTwo {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    #login {
+        grid-column: 1;
+        grid-row: 4;
+    }
 
-            #registerButton {
-                grid-column: 1;
-                grid-row: 6;
-            }
+    #registerInfo {
+        grid-column: 1;
+        grid-row: 5;
+        position: relative;
+        left: 5%;
+    }
 
-            /* TODO: currently same code and class as top_bar.html*/
-            .navbutton {
-                background-color: darkgreen;
-                color: white;
-                height: 30px;
-                width: 100px;
-                position: relative;
-                left: 25%;
-            }
+    #registerButton {
+        grid-column: 1;
+        grid-row: 6;
+    }
 
-        </style>
+    /* TODO: currently same code and class as top_bar.html*/
+    .navbutton {
+        background-color: darkgreen;
+        color: white;
+        height: 30px;
+        width: 100px;
+        position: relative;
+        left: 25%;
+    }
 
-        <script>
-            function login() {
-                username = document.getElementById("username");
-                password = document.getElementById("password");
-                console.log("username: " + username.value)
-                console.log("password: " + password.value)
-            }
-        </script>
+</style>
 
-    </head>
+<script>
+    function login() {
+        username = document.getElementById("username");
+        password = document.getElementById("password");
+        console.log("username: " + username.value)
+        console.log("password: " + password.value)
+    }
+</script>
 
-    <body>
-        <div id = "credentials">
-            <p id = "logInHere"> Log in here!</p>
-            <label id = "textOne">
-                Username:
-                <br/><input id = "username"/>
-            </label>
-            <label id = "textTwo">
-                Password:
-                <br/><input id = "password"/>
-            </label>
-            <button class = "navbutton" id = "login"onclick="login()">
-                Log In
-            </button>
-            <p id = "registerInfo"> Don't have an account yet? </p>
-            <button class = "navbutton" id = "registerButton" onclick = "window.location.href='#register';"> Register! </a> 
-        </div>
-    </body>
+{% endblock %}
 
-</html>
+{% block content %}
+<div id = "credentials">
+    <p id = "logInHere"> Log in here!</p>
+    <label id = "textOne">
+        Username:
+        <br/><input id = "username"/>
+    </label>
+    <label id = "textTwo">
+        Password:
+        <br/><input id = "password"/>
+    </label>
+    <button class = "navbutton" id = "login"onclick="login()">
+        Log In
+    </button>
+    <p id = "registerInfo"> Don't have an account yet? </p>
+    <button class = "navbutton" id = "registerButton" onclick = "window.location.href='#register';"> Register! </a> 
+</div>
+{% endblock %}

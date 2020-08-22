@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+        {% endblock %}
+        <style>
+            #navbar {
+                overflow: hidden;
+                background-color: #333;
+                display: flex;
+                justify-content: center;
+            }
+
+            /* Navbar links */
+            .navbutton {
+                color: white;
+                background-color: darkgreen
+            }
+            
+            /*CSS for styling the header*/
+            #namebar {
+                display:flex;
+                justify-content: center;
+                background-color: lightgreen;
+            }
+
+            #namebar a {
+                text-decoration: none;
+                color: darkgreen;
+            }
+        </style>
+    </head>
+
+
+    <body>
+        <div id = "namebar">
+            <h1>
+                <span>
+                    <a href = "#home">SeedLink</a>
+                </span>
+            </h1>
+        </div>
+
+        <div id="navbar">
+            <button 
+                class = "navbutton"
+                onclick="window.location.href='#about';">
+                About
+            </button>
+            <button
+                class = "navbutton"
+                onclick="window.location.href='#faq';">
+                FAQ
+            </button>
+            <button
+                class = "navbutton"
+                onclick="window.location.href='#search';">
+                Search
+            </button>
+            <button
+                class = "navbutton"
+                onclick="window.location.href='#catalogue';">
+                Catalogue
+            </button>
+            {% if notLoggedIn %}
+            <button
+                class = "navbutton"
+                onclick="window.location.href='#login';">
+                Login or Sign Up
+            </button>
+            {% endif %}
+        </div> 
+        <div id = "content"> 
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
