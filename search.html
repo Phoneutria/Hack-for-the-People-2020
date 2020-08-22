@@ -21,6 +21,7 @@
                 position: relative;
                 width: 300px;
                 left: 25%;
+                clear: both;
             }
 
             #searchHere {
@@ -28,6 +29,7 @@
                 grid-row: 1;
                 position: relative;
                 left: 20%
+                clear: both;
             }
 
             #textOne {
@@ -73,16 +75,16 @@
         <div id = "searchBars">
             <p id = "searchHere"> Search listings:</p>
             <label id = "textOne"> Name:
-                <input id = "name"/>
+                <br/><input id = "name"/>
             </label>
             <label id = "textTwo">Looking For:
-                <input id = "lookingFor"/>
+                <br/><input id = "lookingFor"/>
             </label>
             <label id = "textThree">Offering:
-                <input id = "offering"/>
+                <br/><input id = "offering"/>
             </label>
             <label id = "textFour">Location:
-                <input id = "location"/>
+                <br/><input id = "location"/>
             </label>
             <button class = "navbutton" id = "searchButton"
                     onclick = "search()"> 
