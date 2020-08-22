@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #background {
+                display: flex
+            }
+
+            #sortOptions {
+                flex-basis: 350px;
+                background-color: white;
+            }
+
+            #results {
+                flex-basis: 100%;
+                grid-column: 2;
+                background-color: red;
+            }
+
+            .dropbtn {
+                background-color: darkgreen;
+                color: white;
+                width: 200px;
+            }
+
+            .dropdown {
+                position: relative;
+                display: inline-block
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: lightgreen;
+                min-width: 160px;
+                box-shadow: 0px, 8px, 16px, 0px, rgba(0,0,0,0.2)
+            }
+
+            .dropdown-content button {
+                color: white;
+                background-color: darkgreen;
+                padding: 12px 16px;
+                display: block;
+                width: 200px;
+            }
+
+            .dropdown-content button:hover {
+                background-color: #ddd;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .textboxHolder {
+                width: 250px;
+                display: inline-block;
+            }
+
+            .textbox {
+                width: 150px;
+                display: inline-block;
+            }
+
+            .modal {
+                display: none;
+                position: relative;
+                z-index: 1;
+                left: 20%;
+                top: 0%;
+                width: 50%;
+                height: 20%;
+                overflow: auto;
+                background-color: lightgreen;
+            }
+            .modal-content {
+                background-color: lightgreen;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid black;
+                width: 80%
+            }
+
+            .close {
+                color: white;
+                background-color: darkgreen;
+                float: right;
+            }
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        </style>
+
+        <script>
+
+            window.onclick = function(event) {
+                var modal = document.getElementById("exampleModal");
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <div id = "background"> 
+            <div id = "sortOptions">
+                <div class = "dropdown">
+                    <button class = "dropbtn">Select Type</button>
+                    <div class = "dropdown-content">
+                        <button> Vegetables </button>
+                        <button> Fruit </button>
+                        <button> Flowers </button>
+                    </div>
+                </div>
+
+                Ideally, should have a dropdown for location where the values
+                are determined dynamically here
+
+                <p> Other ways to sort? </p>
+            </div>
+            <div id = "results">
+                <h1> Listings </h1>
+                <div id = "exampleListing">
+                    Looking for vegetables!
+                    <button id = "viewExampleListing"
+                            onclick = 'var modal = document.getElementById("exampleModal");
+                                modal.style.display = "block";'>    
+                    View Details</button>
+
+                    <div id = "exampleModal" class = "modal">
+                        <div class = "listing-content">
+                            <span class = "close"
+                                  onclick = 'var modal = document.getElementById("exampleModal");
+                                      modal.style.display = "block";'> &times; </span>
+                            <p> Marissa is looking for carrot seeds in Beaverton!</p>
+                    </div>
+                </div>
+                <p> Other dynamically generated content goes here. Either a bunch of listings determined by an explore feature,
+                    or all the listings on the server.
+                </p>
+
+            </div>
+        </div>
+
+    </body>
+</html>
+
