@@ -1,28 +1,170 @@
+<!DOCTYPE html>
+
 <html>
     <head>
-        <title>Seed Link</title>
+        <title>SeedLink</title>
+
+        {% block head %}
+        {% endblock %}
+
+        <style>
+            #navbar {
+                overflow: hidden;
+                display: flex;
+                justify-content: space-around;
+                position: sticky;
+                background-color: #333;
+                width: 100%;
+                left: 0;
+            }
+
+            #navbuttons {
+                background-color: #333;
+            }
+
+            /* Navbar links */
+            .navbutton {
+                color: white;
+                background-color: darkgreen;
+                text-decoration: none;
+                border: 1px, solid, white;
+                height: 40px;
+
+            }
+            
+            /*CSS for styling the header*/
+            #namebar {
+                display:flex;
+                justify-content: center;
+                background-color: lightgreen;
+                position: sticky;
+                width: 100%;
+                top: 0;
+            }
+
+            #namebar a {
+                text-decoration: none;
+                color: darkgreen;
+            }
+
+            #footer{
+                width: 100%;
+                text-align: center;
+                background-color: black;
+                color: white;
+                padding: 20px;
+            }
+
+            #logo{
+                color: rgb(0, 73, 37);
+                padding: 1vw;
+                background-color: lightgreen;
+            }
+
+            .white{
+                color: white;
+            }
+
+        </style>
+
+        <meta charset="UTF-8">
+        <meta name="description" content="Home Page">
+        <meta name="keywords" content="Seedlink subjects">
+        <meta name="author" content="The Trio">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            SeedLink
+        </title>
+    
     </head>
+
     <body>
-        <div>
-            <h1>Seed Link</h1>
+        <div id = "namebar">
+            <h1>
+                <span>
+                    <a href = "{{ url_for('home') }}">SeedLink</a>
+                </span>
+            </h1>
             {% if current_user.is_anonymous %}
             <h2>Welcome!</h2>
             {% else %}
             <h2>Welcome, {{ current_user.username }}!</h2>
             {% endif %}
         </div>
-        <div>
-            Navigation:
-            <a href="{{ url_for('home') }}">Home</a>
-            <a href="{{ url_for('about') }}">About</a>
-            <a href="{{ url_for('search') }}">Search</a>
-            <a href="{{ url_for('catalog') }}">Catalog</a>
-            {% if current_user.is_anonymous %}
-            <a href="{{ url_for('login') }}">Login/Sign Up</a>
-            {% else %}
-            <a href="{{ url_for('logout') }}">Logout</a>
-            {% endif %}
+        <div id = "navbar">
+            <div id = "navbuttons">
+                <a 
+                    class = "navbutton"
+                    href="{{ url_for('home') }}">
+                    Home</a>
+                <a 
+                    class = "navbutton"
+                    href="{{ url_for('about') }}">
+                    About</a>
+                <a
+                    class = "navbutton"
+                    href = "{{ url_for('faq') }}">
+                    FAQ</a>
+
+                <a
+                    class = "navbutton" 
+                    href="{{ url_for('search') }}">
+                    Search</a>
+                <a 
+                    class = "navbutton" 
+                    href="{{ url_for('catalog') }}">
+                    Catalog</a>
+
+                {% if current_user.is_anonymous %}
+                <a 
+                    class = "navbutton"
+                    href="{{ url_for('login') }}">
+                    Login/Sign Up</a>
+                {% else %}
+                <a 
+                    class = "navbutton"
+                    href="{{ url_for('logout') }}">
+                    Logout</a>
+                {% endif %}
+            </div>
         </div>
+
+        <br/>
         {% block content %}{% endblock %}
+        <br/>
+        <footer>
+            <table id = "footer">
+                <tr>
+                    <td id = "logo">
+                        SEEDLINK
+                    </td>
+        
+                    <td>
+                        <a href="" class="white">
+                            About
+                        </a>
+                    </td>
+        
+                    <td>
+                        <a href="" class="white">
+                            Contact Us
+                        </a>
+                    </td>
+                        
+                    <td>
+                        <a href="" class="white">
+                            Home
+                        </a>
+                    </td>
+        
+                    <td>
+                        <a href="" class="white">
+                            Top
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+        </footer>
     </body>
 </html>
