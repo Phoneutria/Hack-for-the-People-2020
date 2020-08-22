@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <style>
-
     /*CSS for styling the header*/
-    
+
 
     #navbar {
         overflow: hidden;
@@ -11,11 +10,11 @@
         justify-content: center;
         position: sticky;
         width: 100%;
-        top:0 ;
+        top: 0;
 
     }
 
-    
+
 
     /* Navbar links */
     .navbutton {
@@ -23,16 +22,16 @@
         background-color: darkgreen
     }
 
-    .category{
+    .category {
         border-style: solid;
         border-color: rgb(54, 219, 137);
         border-width: 4px;
         align-items: center;
         border-radius: 80%;
         width: 100%;
-        max-width:300px;
+        max-width: 300px;
         max-height: 300px;
-        min-width:300px;
+        min-width: 300px;
         min-height: 300px;
         box-sizing: border-box;
     }
@@ -44,18 +43,75 @@
         background-color: lightgreen;
         position: sticky;
         width: 100%;
-        top:0;
+        top: 0;
     }
 
-    
+
     #namebar a {
         text-decoration: none;
         color: darkgreen;
     }
 
-    
+    #footer{
+        width: 100%;
+        text-align: center;
+        background-color: black;
+        color: white;
+        padding: 20px;
+        position: absolute;
+    }
 
+    #logo{
+        color: rgb(0, 73, 37);
+        padding: 1vw;
+        background-color: lightgreen;
+    }
 
+    .white{
+        color: white;
+    }
+
+    /*--------------------------Style the Accordion---------------------*/
+    .accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        transition: 0.4s;
+    }
+
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    .active,
+    .accordion:hover {
+        background-color: #ccc;
+    }
+
+    /* Style the accordion panel. Note: hidden by default */
+    .panel {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    .accordion:after {
+        content: '\02795';
+        /* Unicode character for "plus" sign (+) */
+        font-size: 13px;
+        color: #777;
+        float: right;
+        margin-left: 5px;
+    }
+
+    .active:after {
+        content: "\2796";
+        /* Unicode character for "minus" sign (-) */
+    }
 </style>
 
 <html>
@@ -99,22 +155,80 @@
         </button>
     </div>
 
-    <br/>
-    <br/>
+    <br />
+    <br />
 
     <main>
         <div>
-            <article>
+            <button class="accordion">Q1: ...</button>
+            <div class="panel">
+                <p>Lorem ipsum...</p>
+            </div>
 
-                
+            <button class="accordion">Q2: ...</button>
+            <div class="panel">
+                <p>Lorem ipsum...</p>
+            </div>
 
-            </article>            
-        </div>        
+            <button class="accordion">Q3: ...</button>
+            <div class="panel">
+                <p>Lorem ipsum...</p>
+            </div>
+        </div>
     </main>
+
+
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
 </body>
 
 <footer>
+    <table id = "footer">
+        <tr>
+            <td id = "logo">
+                SEEDLINK
+            </td>
 
+            <td>
+                <a href="" class="white">
+                    About
+                </a>
+            </td>
+
+            <td>
+                <a href="" class="white">
+                    Contact Us
+                </a>
+            </td>
+                
+            <td>
+                <a href="" class="white">
+                    Home
+                </a>
+            </td>
+
+            <td>
+                <a href="" class="white">
+                    Top
+                </a>
+            </td>
+        </tr>
+    </table>
 
 </footer>
 
