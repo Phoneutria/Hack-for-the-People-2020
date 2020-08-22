@@ -14,7 +14,7 @@
             #results {
                 flex-basis: 100%;
                 grid-column: 2;
-                background-color: red;
+                background-color: rgb(162, 0, 255);
             }
 
             .dropbtn {
@@ -93,6 +93,89 @@
                 cursor: pointer;
             }
 
+            body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Popup */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+}
+
+.modal-content {
+  position: fixed;
+  bottom: 0;
+  background-color: #fefefe;
+  width: 100%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #9e5cb8;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #9e5cb8;
+  color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {bottom: -300px; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+/*The end of pop up CSS*/
+
         </style>
 
         <script>
@@ -126,27 +209,73 @@
             </div>
             <div id = "results">
                 <h1> Listings </h1>
-                <div id = "exampleListing">
-                    Looking for vegetables!
-                    <button id = "viewExampleListing"
-                            onclick = 'var modal = document.getElementById("exampleModal");
-                                modal.style.display = "block";'>    
-                    View Details</button>
+                
+                <!-- Trigger/Open The pop up -->
+<button id="myBtn">
+	<table>
+    	<tr>
+        <td>
+		<img src ="https://i.pinimg.com/originals/5b/41/d9/5b41d91e9d67fb9a76b3c0573490b3e5.png">
+        </td>
+        <td>
+        	Some info about catalogue item
+        </td>
+        </tr>
+        
+    </table>
+</button>
 
-                    <div id = "exampleModal" class = "modal">
-                        <div class = "listing-content">
-                            <span class = "close"
-                                  onclick = 'var modal = document.getElementById("exampleModal");
-                                      modal.style.display = "block";'> &times; </span>
-                            <p> Marissa is looking for carrot seeds in Beaverton!</p>
-                    </div>
-                </div>
-                <p> Other dynamically generated content goes here. Either a bunch of listings determined by an explore feature,
-                    or all the listings on the server.
-                </p>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>What the subject / item is is</h2>
+    </div>
+    <div class="modal-body">
+      <p>What it is</p>
+      <p>What it cost</p>
+      <p>Quantity Available</p>
+    </div>
+    <div class="modal-footer">
+      <h3>DATE</h3>
+    </div>
+  </div>
+
+</div>
 
             </div>
         </div>
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+            
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+            
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            
+            // When the user clicks the button, open the modal 
+            btn.onclick = function() {
+              modal.style.display = "block";
+            }
+            
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+              modal.style.display = "none";
+            }
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+            </script>
 
     </body>
 </html>
