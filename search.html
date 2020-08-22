@@ -29,7 +29,6 @@
                 grid-row: 1;
                 position: relative;
                 left: 20%
-                clear: both;
             }
 
             #textOne {
@@ -57,6 +56,20 @@
                 grid-row: 6;
             }
 
+            .infobutton {
+                border: none;
+                width: 20px;
+                height: 20px;
+                background-color: darkgreen;
+                transition: all ease-in-out 0.05s;
+                cursor:pointer;
+            }
+
+            .infobutton:hover {
+                border: 1px solid #888;
+                background-color: darkgreen;
+            }
+
         </style>
 
         <script>
@@ -75,15 +88,19 @@
         <div id = "searchBars">
             <p id = "searchHere"> Search listings:</p>
             <label id = "textOne"> Name:
+                <img class = "infobutton" src = "Images/info.jpeg" title = "Search listings by the name of the lister.">
                 <br/><input id = "name"/>
             </label>
             <label id = "textTwo">Looking For:
+                <img class = "infobutton" src = "Images/info.jpeg" title = "Search for what other people are looking for.">
                 <br/><input id = "lookingFor"/>
             </label>
             <label id = "textThree">Offering:
+                <img class = "infobutton" src = "Images/info.jpeg" title = "Search for what other people are offering.">
                 <br/><input id = "offering"/>
             </label>
             <label id = "textFour">Location:
+                <img class = "infobutton" src = "Images/info.jpeg" title = "Enter a listing location.">
                 <br/><input id = "location"/>
             </label>
             <button class = "navbutton" id = "searchButton"
