@@ -40,7 +40,7 @@ class Scraping:
     # also NOTE: plants_times input should be the output from scrape_tables (below)
     def find_range(plants_times):
         messages_to_print = []
-        today = dateages_to_print.append("It's currently not a suitable time to start planting in your area. Check back another day for more suggestions!")
+        today = messages_to_print.append("It's currently not a suitable time to start planting in your area. Check back another day for more suggestions!")
 
         return messages_to_print
 
@@ -55,8 +55,8 @@ class Scraping:
         plant_groups = []
 
         URL = 'https://www.almanac.com/gardening/planting-calendar/zipcode/' + zipcode
-        req = Request(URL, headers={'User-Agent': 'Mozilla/5.0'})
-        webpage = urlopen(req).read()
+        req = requests.get(URL, headers={'User-Agent': 'Mozilla/5.0'})
+        webpage = req.text
 
         soup = BeautifulSoup(webpage, 'html.parser')
         plants = soup.findAll("tr", class_="plantrow")
