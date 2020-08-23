@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<style>
+    .infobutton {
+        border: none;
+        width: 20px;
+        height: 20px;
+        background-color: darkgreen;
+        transition: all ease-in-out 0.05s;
+        cursor:pointer;
+    }
+
+    .infobutton:hover {
+        border: 1px solid #888;
+        background-color: darkgreen;
+    }
+
+    #createListing {
+        position: relative;
+        left: 25%;
+    }
+        
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<p id = "createListing"> On this page, you can post listings to be seen by other users.</p>
+<form action = "" method = "post" >
+    {{ form.hidden_tag() }}
+    <p> 
+        {{ form.lookingFor.label }} 
+        <img class = "infobutton" src = "Images/info.jpeg" title = "Enter any items you are looking for, separated by commas."><br>
+        {{ form.lookingFor(size = 32) }} <br>
+    </p>
+    <p>
+        {{ form.offering.label }}<br>
+        <img class = "infobutton" src = "Images/info.jpeg" title = "Enter any items you are offering, separated by commas."><br>
+        {{ form.offering(size = 32) }}<br>
+    </p>
+    <p>
+        {{ form.other.label }}
+        <img class = "infobutton" src = "Images/info.jpeg" title = "Enter any additional information here."><br>
+        {{ form.other(size = 32)}}
+    </p>
+    <p>
+        <input id = "submit" name = "submit" type = "submit" class = "navbutton" value = "Create listing"><br>
+    </p>
+</form>
+{% endblock %}
