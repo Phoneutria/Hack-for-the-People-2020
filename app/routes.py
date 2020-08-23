@@ -2,7 +2,7 @@ from app import app, db
 from app.forms import LoginForm, RegistrationForm, CreateForm
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import User, Post
 from werkzeug.urls import url_parse
 
 @app.route('/')
@@ -28,13 +28,19 @@ def search():
 @app.route('/catalog')
 @login_required
 def catalog():
-    return render_template("catalog.html", title="Catalog")
+    # gets the list of posts from the server and gives them to catalog.html to render
+    postList = Post.query.all()
+    return render_template("catalog.html", title="Catalog", listings = postList)
 
 @app.route('/create', methods = ['GET', 'POST'])
 @login_required
 def create():
     form = CreateForm()
     if form.validate_on_submit():
+        listing = Post(offering = form.offering.data, looking = form.lookingFor.data,
+        add_info = form.other.data, author = current_user)
+        db.session.add(listing)
+        db.session.commit()
         return redirect(url_for('catalog'))
 
     return render_template("create.html", title = "Create", form = form)
