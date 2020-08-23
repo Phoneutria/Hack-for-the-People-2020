@@ -33,16 +33,6 @@ class Scraping:
                 messages_to_print.append("It's currently not a suitable time to start planting in your area. Check back another day for more suggestions!")
 
         return messages_to_print
-            
-    # plants_times is a list of plants along with all their start times
-    # returns a list of plants (strings) that can be planted now 
-    # NOTE: This is the function whose results you want to use in the suggestions
-    # also NOTE: plants_times input should be the output from scrape_tables (below)
-    # def find_range(plants_times):
-    #     messages_to_print = []
-    #     today = messages_to_print.append("It's currently not a suitable time to start planting in your area. Check back another day for more suggestions!")
-
-    #     return messages_to_print
 
 
     # This function establishes a connection to the website and scrapes the data from it
