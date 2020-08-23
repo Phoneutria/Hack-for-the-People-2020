@@ -201,40 +201,70 @@
     {% endif %}
 
     {% for listing in listings %}
-    <!-- Trigger / Open the pop up-->
-    <button id = "openPopup">
-        onclick = openModal()
-        <img src = "{{ listing.image }}">
-    </button>
+    <div>
+        <!-- Trigger / Open the pop up-->
+        <p>
+            User {{ listing.author.username}} is looking for 
+            {{ listing.looking }} and offering {{ listing.offering }}
+            in {{ listing.author.location }}.
+        <button 
+            onclick = "openModal(this)">
+            Details
+            <img src = "{{ listing.image }}">
+        </button>
+        </p>
 
-    <!-- Modal -->
-    <div class = "modal">
-        <!-- Modal content -->
-        <div class = "modal-content">
-            <div class = "modal-header">
-                <span class = "close">&times;</span>
-                <h2>{{ listing.name }}</h2>
-            </div>
-            <div class = "modal-body">
-                <h2>Location: {{listing.location}}</h2>
-                <p> {{ listing.name }} is looking for {{ listing.lookingFor }}.</p>
-                <p> {{ listing.name }} is offering {{ listing.lookingFor }}.</p>
-                <p> Additional information: {{ listing.other }}</p>
-            </div>
-            <div class = "modal-footer">
-                <p> {{ listing.name}} can be contacted at {{ listing.email }}.</p>
+        <!-- Modal -->
+        <div class = "modal" id = "myModal">
+            <!-- Modal content -->
+            <div class = "modal-content">
+                <div class = "modal-header">
+                    <span class = "close" id = "closeButton">&times;</span>
+                    <h2>{{ listing.author.username }}</h2>
+                </div>
+                <div class = "modal-body">
+                    <h2>Location: {{listing.author.location}}</h2>
+                    <p> {{ listing.author.username }} is looking for {{ listing.looking }}.</p>
+                    <p> {{ listing.author.username }} is offering {{ listing.offering }}.</p>
+                    <p> Additional information: {{ listing.add_info }}</p>
+                </div>
+                <div class = "modal-footer">
+                    <p> {{ listing.author.name }} can be contacted at {{ listing.author.email }}.</p>
+                </div>
             </div>
         </div>
     </div>
-
-
-
-    
-
-
-
-
     {% endfor %}
 
+    <script>
 
+        function openModal (elem){
+            // this function is called by each element in the for loop when it is clicked
+            // elem is the element that is calling it
+            // get the "myModal" element and display it 
+            elem.parentNode.parentNode.children[1].style.display = 'block';
+        }
+
+        // var modal = document.getElementById("myModal");
+
+        // var btn = document.getElementById("openPopup");
+
+        // var span = document.getElementById("closeButton");
+
+        // btn.onclick = function() {
+        //     modal.style.display = "block";
+        // }
+
+        // span.onclick = function() {
+        //     modal.style.display = "none";
+        // }
+
+        window.onclick = function(event) {
+            // closes a modal if it's open, when the user clicks outside of it
+            console.log(event.target);
+            if (event.target.className == "modal") {
+                event.target.style.display = "none";
+            }
+        }        
+    </script>
 {% endblock %}
