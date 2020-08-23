@@ -14,6 +14,7 @@ class RegistrationForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired(), Email()])
     name = StringField("Name", validators=[DataRequired()])
     location = StringField("Location", validators=[DataRequired()])
+    zipcode = StringField("Zipcode", validators = [DataRequired()])
     password = PasswordField("Password", validators=[DataRequired()])
     password2 = PasswordField("Repeat Password", validators=[DataRequired(), EqualTo("password")])
     submit = SubmitField("Register")
@@ -32,3 +33,10 @@ class CreateForm(FlaskForm):
     lookingFor = StringField('Looking For: ')
     offering = StringField('Offering: ')
     other = StringField('Other Information:')
+
+class SearchForm(FlaskForm):
+    looking = StringField('Looking For: ')
+    offering = StringField('Offering: ')
+    other = StringField('Other Information:')
+    name = StringField('Username: ')
+    location = StringField("Location: ")

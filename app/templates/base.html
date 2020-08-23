@@ -131,12 +131,16 @@
                 {% else %}
                 <a 
                     class = "navbutton"
-                    href="{{ url_for('logout') }}">
-                    Logout</a>
-                <a 
-                    class = "navbutton"
                     href = "{{ url_for('create') }}">
                     Post</a>
+                <a 
+                    class = "navbutton"
+                    href = "{{ url_for('recommend') }}">
+                    Get Recommendations</a>
+                <a 
+                    class = "navbutton"
+                    href="{{ url_for('logout') }}">
+                    Logout</a>
                 {% endif %}
             </div>
         </div>

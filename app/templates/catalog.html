@@ -95,6 +95,14 @@
 
     body {font-family: Arial, Helvetica, sans-serif;}
 
+    .modal p {
+        color: black;
+    }
+
+    .modal h2 {
+        color: black;
+    }
+
     /* The Popup */
     .modal {
         display: none; /* Hidden by default */
@@ -178,16 +186,6 @@
 
 </style>
 
-<script>
-    window.onclick = function(event) {
-        var modal = document.getElementById("exampleModal");
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
-</script>
-
 {% endblock %}
 
 {% block content %}
@@ -262,7 +260,7 @@
         window.onclick = function(event) {
             // closes a modal if it's open, when the user clicks outside of it
             console.log(event.target);
-            if (event.target.className == "modal") {
+            if (event.target.className === "modal") {
                 event.target.style.display = "none";
             }
         }        

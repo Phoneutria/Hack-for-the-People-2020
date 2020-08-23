@@ -52,6 +52,13 @@
             {% endfor %}
         </p>
         <p>
+            {{ form.zipcode.label }}<br>
+            {{ form.zipcode(size=32) }}<br>
+            {% for error in form.zipcode.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
             {{ form.password.label }}<br>
             {{ form.password(size=32) }}<br>
             {% for error in form.password.errors %}

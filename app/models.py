@@ -10,6 +10,7 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(120), index=True)
     location = db.Column(db.String(150), index=True)
     password_hash = db.Column(db.String(128))
+    zipcode = db.Column(db.String(120))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
 
     def __repr__(self):

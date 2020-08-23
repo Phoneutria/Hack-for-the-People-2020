@@ -1,5 +1,6 @@
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, CreateForm
+from app.forms import LoginForm, RegistrationForm, CreateForm, SearchForm
+from app.scraping import Scraping
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Post
@@ -19,11 +20,31 @@ def about():
 def faq():
     return render_template("faq.html", title = "FAQ")
 
-@app.route('/search')
+@app.route('/search', methods = ['GET', 'POST'])
 @login_required
 def search():
-    return render_template("search.html", title="Search")
+    form = SearchForm()
+    if form.validate_on_submit():
+        location = form.location.data
+        user = form.name.data
+        offering = form.offering.data
+        looking = form.looking.data
 
+        #get all posts from the server
+        postList = Post.query.all()
+
+        # update list of posts based on each criteria
+        postList = [post for post in postList if (not location or post.location == location)]
+
+        postList = [post for post in postList if (not user or post.author.username == user)]
+
+        postList = [post for post in postList if (not offering or post.offering == offering)]
+
+        postList = [post for post in postList if (not looking or post.looking == looking)]
+
+        return render_template("catalog.html", title = "Search Results", listings = postList, searched = True)
+
+    return render_template("search.html", title="Search", form = form)
 
 @app.route('/catalog')
 @login_required
@@ -74,10 +95,15 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data,
-         name=form.name.data, location=form.location.data)
+         name=form.name.data, location=form.location.data, zipcode = form.zipcode.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
         flash("Congratulations, you are now a registered user!")
         return redirect(url_for('login'))
     return render_template('register.html', title="Register", form=form)
+
+@app.route('/recommend')
+@login_required
+def recommend():
+    return render_template('recommend.html', plants = Scraping.find_range(Scraping.scrape_tables(current_user.zipcode)))
