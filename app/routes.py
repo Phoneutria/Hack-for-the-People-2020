@@ -1,5 +1,5 @@
 from app import app, db
-from app.forms import LoginForm, RegistrationForm
+from app.forms import LoginForm, RegistrationForm, CreateForm
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
@@ -30,6 +30,14 @@ def search():
 def catalog():
     return render_template("catalog.html", title="Catalog")
 
+@app.route('/create', methods = ['GET', 'POST'])
+@login_required
+def create():
+    form = CreateForm()
+    if form.validate_on_submit():
+        return redirect(url_for('catalog'))
+
+    return render_template("create.html", title = "Create", form = form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
