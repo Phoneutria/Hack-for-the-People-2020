@@ -1,6 +1,6 @@
 # Hack-for-the-People-2020
 
-In this three day hackathon, we created Seedlink, a website for connecting communities through gardening. 
+In this three day hackathon, we created SeedLink, a website for connecting communities through gardening. 
 
 SeedLink is a platform for community gardeners to post what seeds, tools, or information they have, and what seeds, tools, or information they are looking for. Users can search other users' listings and contact them through email. Users can set up a rate of exchange on their own, but SeedLink does not encourage this. If users wish to trade seeds rather than buying or selling, they are welcome to do so. 
 
