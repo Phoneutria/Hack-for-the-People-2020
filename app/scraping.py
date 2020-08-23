@@ -17,9 +17,9 @@ class Scraping:
         today = date.today()
         for item in plants_times:
             plant_name = item[0]
-            seeds_indoors = parse_date(item[1])
-            seedlings_outdoors = parse_date(item[2])
-            seeds_outdoors = parse_date(item[3])
+            seeds_indoors = Scraping.parse_date(item[1])
+            seedlings_outdoors = Scraping.parse_date(item[2])
+            seeds_outdoors = Scraping.parse_date(item[3])
 
             if seeds_indoors != "N/A" and (today - seeds_indoors).days <= 15:
                 message = "You can start " + plant_name + " seeds indoors by " + seeds_indoors.strftime("%B %d") + "."
@@ -38,11 +38,11 @@ class Scraping:
     # returns a list of plants (strings) that can be planted now 
     # NOTE: This is the function whose results you want to use in the suggestions
     # also NOTE: plants_times input should be the output from scrape_tables (below)
-    def find_range(plants_times):
-        messages_to_print = []
-        today = messages_to_print.append("It's currently not a suitable time to start planting in your area. Check back another day for more suggestions!")
+    # def find_range(plants_times):
+    #     messages_to_print = []
+    #     today = messages_to_print.append("It's currently not a suitable time to start planting in your area. Check back another day for more suggestions!")
 
-        return messages_to_print
+    #     return messages_to_print
 
 
     # This function establishes a connection to the website and scrapes the data from it

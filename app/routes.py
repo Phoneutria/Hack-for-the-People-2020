@@ -106,4 +106,4 @@ def register():
 @app.route('/recommend')
 @login_required
 def recommend():
-    return render_template('recommend.html', plants = Scraping.find_range(Scraping.scrape_tables(current_user.zipcode)))
+    return render_template('recommend.html', plants = Scraping.find_range(Scraping.scrape_tables(zipcode = current_user.zipcode)))
