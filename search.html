@@ -1,6 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
+{% extends "base.html" %}
+
+
+{% block head %}
         <style>
 
             /* TODO: currently same code and class as top_bar.html*/
@@ -80,33 +81,32 @@
             }
             
         </script>
+{% endblock %}
 
-    </head>
 
-    <body>
+{% block content %}
 
         <div id = "searchBars">
             <p id = "searchHere"> Search listings:</p>
             <label id = "textOne"> Name:
-                <img class = "infobutton" src = "Images/info.jpeg" title = "Search listings by the name of the lister.">
+                <img class = "infobutton" src = "static/info.jpeg" title = "Search listings by the name of the lister.">
                 <br/><input id = "name"/>
             </label>
             <label id = "textTwo">Looking For:
-                <img class = "infobutton" src = "Images/info.jpeg" title = "Search for what other people are looking for.">
+                <img class = "infobutton" src = "static/info.jpeg" title = "Search for what other people are looking for.">
                 <br/><input id = "lookingFor"/>
             </label>
             <label id = "textThree">Offering:
-                <img class = "infobutton" src = "Images/info.jpeg" title = "Search for what other people are offering.">
+                <img class = "infobutton" src = "static/info.jpeg" title = "Search for what other people are offering.">
                 <br/><input id = "offering"/>
             </label>
             <label id = "textFour">Location:
-                <img class = "infobutton" src = "Images/info.jpeg" title = "Enter a listing location.">
+                <img class = "infobutton" src = "static /info.jpeg" title = "Enter a listing location.">
                 <br/><input id = "location"/>
             </label>
             <button class = "navbutton" id = "searchButton"
                     onclick = "search()"> 
                     Search </button>
         </div>
-    </body>
+{% endblock %}
 
-</html>
