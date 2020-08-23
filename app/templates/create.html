@@ -33,17 +33,17 @@
     {{ form.hidden_tag() }}
     <p> 
         {{ form.lookingFor.label }} 
-        <img class = "infobutton" src = "Images/info.jpeg" title = "Enter any items you are looking for, separated by commas."><br>
+        <img class = "infobutton" src = "static/info.jpeg" title = "Enter any items you are looking for, separated by commas."><br>
         {{ form.lookingFor(size = 32) }} <br>
     </p>
     <p>
-        {{ form.offering.label }}<br>
-        <img class = "infobutton" src = "Images/info.jpeg" title = "Enter any items you are offering, separated by commas."><br>
+        {{ form.offering.label }}
+        <img class = "infobutton" src = "static/info.jpeg" title = "Enter any items you are offering, separated by commas."><br>
         {{ form.offering(size = 32) }}<br>
     </p>
     <p>
         {{ form.other.label }}
-        <img class = "infobutton" src = "Images/info.jpeg" title = "Enter any additional information here."><br>
+        <img class = "infobutton" src = "static/info.jpeg" title = "Enter any additional information here."><br>
         {{ form.other(size = 32)}}
     </p>
     <p>
