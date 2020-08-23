@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block head %}
+<style>
+
+    #searchBars {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: minmax(50px, auto);
+        position: relative;
+        width: 300px;
+        left: 25%;
+    }
+
+    #searchHere {
+        grid-column: 1;
+        grid-row: 1;
+        position: relative;
+        left: 20%
+    }
+
+    .infobutton {
+        border: none;
+        width: 20px;
+        height: 20px;
+        background-color: darkgreen;
+        transition: all ease-in-out 0.05s;
+        cursor:pointer;
+    }
+
+    .infobutton:hover {
+        border: 1px solid #888;
+        background-color: darkgreen;
+    }
+
+</style>
+
+{% endblock%}
+
+{% block content %}
+<h1> Enter search criteria. This page will search all available listings.</h1>
+<div id = "searchBars">
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}
+            <img class = "infobutton" src = "static/info.jpeg" title = "Search listings by the name of the lister."><br>
+            {{ form.name(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.looking.label }}
+            <img class = "infobutton" src = "static/info.jpeg" title = "Search for what other people are looking for."><br>
+            {{ form.looking(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.offering.label }}
+            <img class = "infobutton" src = "static/info.jpeg" title = "Search for what other people are offering."><br>
+            {{ form.offering(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.location.label }}
+            <img class = "infobutton" src = "static/info.jpeg" title = "Enter a listing location."><br>
+            {{ form.location(size=32) }}<br>
+        </p>
+            <input id = "submit" name = "submit" type = "submit" class = "navbutton" value = "Search">
+        </p>
+    </form>
+</div>
+{% endblock %}

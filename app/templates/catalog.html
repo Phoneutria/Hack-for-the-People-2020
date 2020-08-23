@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+
+{% block head %}
+<style>
+    #background {
+        display: flex
+    }
+
+    #sortOptions {
+        flex-basis: 350px;
+        background-color: white;
+    }
+
+    #results {
+        flex-basis: 100%;
+        grid-column: 2;
+        background-color: rgb(162, 0, 255);
+    }
+
+    .dropbtn {
+        background-color: darkgreen;
+        color: white;
+        width: 200px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: lightgreen;
+        min-width: 160px;
+        box-shadow: 0px, 8px, 16px, 0px, rgba(0,0,0,0.2)
+    }
+
+    .dropdown-content button {
+        color: white;
+        background-color: darkgreen;
+        padding: 12px 16px;
+        display: block;
+        width: 200px;
+    }
+
+    .dropdown-content button:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .textboxHolder {
+        width: 250px;
+        display: inline-block;
+    }
+
+    .textbox {
+        width: 150px;
+        display: inline-block;
+    }
+
+    .modal {
+        display: none;
+        position: relative;
+        z-index: 1;
+        left: 20%;
+        top: 0%;
+        width: 50%;
+        height: 20%;
+        overflow: auto;
+        background-color: lightgreen;
+    }
+    .modal-content {
+        background-color: lightgreen;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid black;
+        width: 80%
+    }
+
+    .close {
+        color: white;
+        background-color: darkgreen;
+        float: right;
+    }
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    body {font-family: Arial, Helvetica, sans-serif;}
+
+    .modal p {
+        color: black;
+    }
+
+    .modal h2 {
+        color: black;
+    }
+
+    /* The Popup */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        -webkit-animation-name: fadeIn; /* Fade in the background */
+        -webkit-animation-duration: 0.4s;
+        animation-name: fadeIn;
+        animation-duration: 0.4s
+    }
+
+    .modal-content {
+        position: relative;
+        width: 75%;
+        height: 50%;
+        background-color: #fefefe;
+        -webkit-animation-name: slideIn;
+        -webkit-animation-duration: 0.4s;
+        animation-name: slideIn;
+        animation-duration: 0.4s
+    }
+
+    .modal-header {
+        padding: 2px 16px;
+        background-color: #9e5cb8;
+        color: white;
+    }
+
+    .modal-body {padding: 2px 16px;}
+
+    .modal-footer {
+        padding: 2px 16px;
+        background-color: #9e5cb8;
+        color: white;
+    }
+
+    /* Add Animation */
+    @-webkit-keyframes slideIn {
+        from {bottom: -300px; opacity: 0} 
+        to {bottom: 0; opacity: 1}
+    }
+
+    @keyframes slideIn {
+        from {bottom: -300px; opacity: 0}
+        to {bottom: 0; opacity: 1}
+    }
+
+    @-webkit-keyframes fadeIn {
+        from {opacity: 0} 
+        to {opacity: 1}
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0} 
+        to {opacity: 1}
+    }
+
+    /*The end of pop up CSS*/
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+    {% if searched %}
+    
+    <h1> Search Results </h1>
+    <a href = "{{ url_for('search') }}"> Search Again </a>
+    {% else %}
+    <h1> Catalogue </h1>
+
+    {% endif %}
+
+    {% for listing in listings %}
+    <div>
+        <!-- Trigger / Open the pop up-->
+        <p>
+            User {{ listing.author.username}} is looking for 
+            {{ listing.looking }} and offering {{ listing.offering }}
+            in {{ listing.author.location }}.
+        <button 
+            onclick = "openModal(this)">
+            Details
+            <img src = "{{ listing.image }}">
+        </button>
+        </p>
+
+        <!-- Modal -->
+        <div class = "modal" id = "myModal">
+            <!-- Modal content -->
+            <div class = "modal-content">
+                <div class = "modal-header">
+                    <h2>{{ listing.author.username }}</h2>
+                </div>
+                <div class = "modal-body">
+                    <h2>Location: {{listing.author.location}}</h2>
+                    <p> {{ listing.author.username }} is looking for {{ listing.looking }}.</p>
+                    <p> {{ listing.author.username }} is offering {{ listing.offering }}.</p>
+                    <p> Additional information: {{ listing.add_info }}</p>
+                </div>
+                <div class = "modal-footer">
+                    <p> {{ listing.author.name }} can be contacted at {{ listing.author.email }}.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <script>
+
+        function openModal (elem){
+            // this function is called by each element in the for loop when it is clicked
+            // elem is the element that is calling it
+            // get the "myModal" element and display it 
+            elem.parentNode.parentNode.children[1].style.display = 'block';
+        }
+
+        window.onclick = function(event) {
+            // closes a modal if it's open, when the user clicks outside of it
+            console.log(event.target);
+            if (event.target.className === "modal") {
+                event.target.style.display = "none";
+            }
+        }        
+    </script>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p> Based on the time of year, you might be interested in growing the following plants.
+    All of these plants can be planted now. Some of them may not be available in our listings. </p>
+    <ul>
+        {% for plant in plants %}
+        <li> {{ plant }}</li>
+        {% endfor %}
+
+    </ul>
+
+{% endblock %}

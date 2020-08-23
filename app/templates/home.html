@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<style>
+    .category{
+        border-style: solid;
+        border-color: rgb(54, 219, 137);
+        border-width: 4px;
+        align-items: center;
+        border-radius: 80%;
+        width: 100%;
+        max-width:300px;
+        max-height: 300px;
+        min-width:300px;
+        min-height: 300px;
+        box-sizing: border-box;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+    <div>
+        <main>
+            <span>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="static/homeImages/seeds.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category"src="static/homeImages/vegGarden.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="static/homeImages/fruitGarden.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="static/homeImages/flower.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="static/homeImages/gardening.jpg">
+                            </a>
+                        </td>
+                    </tr>
+    
+                    <tr class = "category">
+                        <td>
+                            <a href="">
+                                <img class= "category" src="static/homeImages/tree.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="static/homeImages/Shrubs.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="static/homeImages/tools.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="static/homeImages/farming.jpg">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img class= "category" src="static/homeImages/DIY.jpg">
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </span>        
+        </main>
+    </div>
+{% endblock %}

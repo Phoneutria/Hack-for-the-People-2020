@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<style>
+    #credentials {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: minmax(50px, auto);
+        position: relative;
+        width: 300px;
+        left: 25%;
+    }
+
+    #submit {
+        position: relative;
+        left: 40%;
+    }
+
+    #registerText {
+        position: relative;
+        left: 15%;
+    }
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+    <div id = "credentials">
+        <h1 color = darkgreen >Sign In</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>
+            <input id = "submit" name = "submit" type = "submit" class = "navbutton" value = "Sign In">
+        </p>
+        <div id = "registerText">
+        <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+        </div>
+    </form>
+    </div>
+{% endblock %}
